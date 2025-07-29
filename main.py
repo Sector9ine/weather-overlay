@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
 # Set your WeatherAPI key and location here
-WEATHER_API_KEY = '89ff8cf55d8e44f39c390702252907'
+WEATHER_API_KEY = os.environ.get('WEATHER_API_KEY')
 LOCATION = 'Bangkok'
 
 last_weather = None
