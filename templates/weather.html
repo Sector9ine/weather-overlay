@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Weather Monitor</title>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <style>
+        body {
+            color: #ffffff;
+            font-family: "Hack", "DejaVu Sans Mono", "Fira Mono", "Noto Mono", "Consolas", "Menlo", "Monaco", "Courier New", monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #weather {
+            font-size: 2.5em;
+            text-align: center;
+            padding: 40px 60px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="weather">Loading weather...</div>
+    <script>
+        const socket = io();
+        socket.on('weather_update', function(msg) {
+            document.getElementById('weather').textContent = msg;
+        });
+    </script>
+</body>
+</html> 
