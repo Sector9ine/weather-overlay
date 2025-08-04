@@ -46,7 +46,7 @@ def weather_monitor_thread():
             humidity = current.get('humidity', '')
             percipitation = current.get('precip_mm', '')
             wind_mph = current.get('wind_mph', '')
-            weather_str = f"{city}, {country}: {condition}, {temp_f}°F, Wind: {wind_mph} mph, Humidity: {humidity}%, Precip: {percipitation} mm, PM2.5: {pm25}, PM10: {pm10}, O3: {o3}, NO2: {no2}, SO2: {so2}, CO: {co}"
+            weather_str = f"{city}, {country}: {condition}, {temp_f}°F, Wind: {wind_mph} mph, Humidity: {humidity}%, Precip: {percipitation} mm, PM2.5: {pm25}, PM10: {pm10}, O3: {o3}, NO2: {no2}, SO2: {so2}"
             if weather_str != last_weather:
                 last_weather = weather_str
                 socketio.emit('weather_update', weather_str)
